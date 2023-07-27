@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('time');
             $table->integer('price');
+            $table->string('filename');
             $table->timestamps();
         });
     }

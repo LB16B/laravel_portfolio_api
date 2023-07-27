@@ -9,11 +9,10 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Recipe>
  */
 
-class RecipeFakerProvider extends Base
+//  タイトル
+class RecipeTitleFakerProvider extends Base
 {
-    // protected 非公開だが、子クラスへの継承は可能
-    // static 静的。どのインスタンスでもメソッドやプロパティを呼び出せる
-    protected static $recipeTitle = [
+    protected static $recipeTitles = [
         // 5 ~ 6月
         'りんごのパン粥',
         'さつまいもとトマトとりんご',
@@ -56,7 +55,45 @@ class RecipeFakerProvider extends Base
 
     public static function recipeTitle()
     {
-        return static::randomElement(static::$recipeTitle);
+        return static::randomElement(static::$recipeTitles);
+    }
+}
+
+// サムネイル
+class RecipeImageFakerProvider extends Base {
+
+    protected static $recipeImages = [
+        '2023-05-31EOuIKmkx8WGPS1F.jpg',
+        '2023-05-31El5YInDnnM4wbDn.jpg',
+        '2023-05-31GEferH5RxwXa7GP.jpg',
+        '2023-05-31mVEzjIjgCb8AK6u.jpg',
+        '2023-05-31O3a9TFX9Iv6mFxH.jpg',
+        '2023-05-31PUjhSqWqJjlYIlQ.jpg',
+        '2023-05-31rkchqq9hPJUDRJy.jpg',
+        '2023-05-31SX2dbKw0oqW1c1b.jpg',
+        '2023-05-31WCBbPq9uavj6oGa.jpg',
+        '2023-05-31yTzOM5wgl0xmIDd.jpg',
+        '2023-05-31z5htyKAoOlLgx9r.jpg',
+        '2023-05-311FELS3SZNwbBXot.jpg',
+        '2023-05-314esJMmx7a3AdMNf.jpg',
+        '2023-05-31cNj3iaOi7Gq8xUZ.jpg',
+        '2023-05-31BAmFtz7cRMBzVSj.jpg',
+        '2023-05-31aQDkFqSc3LV7c8b.jpg',
+        '2023-06-058W43SYt5erj9NJr.jpg',
+        '2023-06-058Sk1bx7Lw4h15yy.jpg',
+        '2023-06-058ffSJ1wLt6dlofR.jpg',
+        '2023-06-05zneD2rfDwq4nEYs.jpg',
+        '2023-06-05uLZny1lMQ8h7RO1.jpg',
+        '2023-06-05UaHcCejSDypPvjN.jpg',
+        '2023-06-05FAr7GgVfh0oN0Ob.jpg',
+        '2023-06-05lFVVtZ1dMug8cLi.jpg',
+        '2023-06-05pQBHhBjj574LdJ7.jpg',
+        '2023-06-05QD1FgVmMi9K1L8i.jpg',
+    ];
+
+    public static function recipeImage()
+    {
+        return static::randomElement(static::$recipeImages);
     }
 }
 
@@ -70,12 +107,14 @@ class RecipeFactory extends Factory
      */
     public function definition(): array
     {
-        $this->faker->addProvider(new RecipeFakerProvider($this->faker));
+        $this->faker->addProvider(new RecipeTitleFakerProvider($this->faker));
+        $this->faker->addProvider(new RecipeImageFakerProvider($this->faker));
 
         return [
-            'title' => RecipeFakerProvider::recipeTitle(),
+            'title' => RecipeTitleFakerProvider::recipeTitle(),
             'time' => rand(30, 500),
-            'price' => rand(100, 3000)
+            'price' => rand(100, 3000),
+            'filename' => RecipeImageFakerProvider::recipeImage(),
         ];
     }
 }

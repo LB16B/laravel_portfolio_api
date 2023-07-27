@@ -2,27 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class UpdateRecipeRequest extends FormRequest
+// class クラス名 extends 継承元クラス名
+class UpdateRecipeRequest extends StoreRecipeRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return false;
-    }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
-     */
-    public function rules(): array
-    {
-        return [
-            //
-        ];
-    }
 }
