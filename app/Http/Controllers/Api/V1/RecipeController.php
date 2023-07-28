@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api\PaidMember;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Recipe;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRecipeRequest;
 use App\Http\Requests\UpdateRecipeRequest;
 use App\Http\Resources\RecipeResource;
+
+use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
+
 
 class RecipeController extends Controller
 {
@@ -32,6 +36,7 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
+        // $recipe = $request->user()->recipes->create($request->validated());
         $recipe = Recipe::create($request->validated());
 
         return RecipeResource::make($recipe);
