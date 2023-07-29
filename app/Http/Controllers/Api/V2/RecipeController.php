@@ -14,6 +14,10 @@ use Illuminate\Http\RedirectResponse;
 
 class RecipeController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Recipe::class);
+    }
     /**
      * Display a listing of the resource.
      */

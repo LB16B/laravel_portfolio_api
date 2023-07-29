@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use Illuminate\Auth\Access\Response;
-use App\Models\Recipe;
 use App\Models\User;
+use App\Models\Recipe;
+use Illuminate\Auth\Access\Response;
 
 class RecipePolicy
 {
@@ -13,7 +13,7 @@ class RecipePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,23 +21,23 @@ class RecipePolicy
      */
     public function view(User $user, Recipe $recipe): bool
     {
-        //
+        return $user->id === $recipe->user_id;
     }
 
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        //
-    }
+    // /**
+    //  * Determine whether the user can create models.
+    //  */
+    // public function create(User $user): bool
+    // {
+    //     //
+    // }
 
     /**
      * Determine whether the user can update the model.
      */
     public function update(User $user, Recipe $recipe): bool
     {
-        //
+        return $user->id === $recipe->user_id;
     }
 
     /**
