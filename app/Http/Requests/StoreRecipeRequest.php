@@ -23,9 +23,9 @@ class StoreRecipeRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:100',
-            'time' => 'required|integer',
-            'price' => 'required|integer',
-            'filename' => 'required|string|max:255'
+            'time' => 'integer',
+            'price' => 'integer',
+            'filename' => 'string|max:255'
         ];
     }
 }

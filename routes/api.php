@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\LogoutController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\V1\RecipeController;
+// use App\Http\Controllers\RecipeFileUploadController;
 
 
 /*
@@ -31,3 +32,5 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::post('/upload', [RecipeFileUploadController::class, 'upload']);
