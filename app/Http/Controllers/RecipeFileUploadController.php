@@ -11,7 +11,6 @@ class RecipeFileUploadController extends Controller
 {
     public function upload(Request $request)
     {
-
         if ($request->hasFile('file')) {
             // ファイルがアップロードされた場合
             $file = $request->file('file');
@@ -20,7 +19,7 @@ class RecipeFileUploadController extends Controller
             $x = $request->input('x');
             $y = $request->input('y');
             $height = $request->input('height');
-            $with = $request->input('with$with');
+            $with = $request->input('with');
 
             // 画像加工
             $trimmingFile = Image::make($file);
