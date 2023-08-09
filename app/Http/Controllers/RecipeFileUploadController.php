@@ -23,7 +23,7 @@ class RecipeFileUploadController extends Controller
 
             // 画像加工
             $trimmingFile = Image::make($file);
-            $file->crop($width, $height, $x, $y);
+            $file->crop($with, $height, $x, $y);
 
             
             // ファイルを保存するディレクトリを指定（任意のディレクトリに変更する）
