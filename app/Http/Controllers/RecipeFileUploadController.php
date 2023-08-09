@@ -15,10 +15,8 @@ class RecipeFileUploadController extends Controller
             $file = $request->file('file');
 
             // ファイルを保存するディレクトリを指定（任意のディレクトリに変更する）
-            $uploadPath = public_path('uploads');
+            $uploadPath = public_path('recipe_images');
 
-            // ファイルの保存
-            // $fileName = time() . '_' . $file->getClientOriginalName();
             $jstDateTime = date('YmdHi', strtotime('+ 9 hours', time()));
             $fileName = $jstDateTime . '_' . $file->getClientOriginalName();
             $file->move($uploadPath, $fileName);
