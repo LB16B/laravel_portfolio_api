@@ -8,7 +8,6 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 // use Dotenv\Exception\ValidationException;
 use Illuminate\Validation\ValidationException;
-use App\Models\PaidMember;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller

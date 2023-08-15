@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
+// use Intervention\Image\Facades\Image;
+use Intervention\Image\Facades\Image as ImageIntervention;
 
 class RecipeFileUploadController extends Controller
 {
@@ -21,20 +22,24 @@ class RecipeFileUploadController extends Controller
             $height = $request->input('height');
             $width = $request->input('width');
 
-            // 画像加工
-            // $file = Image::make($file);
-            // $file->crop($width, $height, $x, $y);
-
             // ファイルを保存するディレクトリを指定（任意のディレクトリに変更する）
-            $uploadPath = public_path('uploads');
+            $uploadPath = public_path('recipe_images');
 
 
             // ファイルの保存
             $fileName = time() . '_' . $file->getClientOriginalName();
             $jstDateTime = date('YmdHi', strtotime('+ 9 hours', time()));
-            $fileName = $jstDateTime . '_' . $file->getClientOriginalName();
+            $fileName = $jstDateTime . '_' . $file->getClientOriginalName();      
             $file->move($uploadPath, $fileName);
-            // $file->save($uploadPath . '/' . $fileName);
+
+            // トリミングした画像を作成
+            $image = imagecreatefromjpeg($uploadPath . '/' . $fileName);
+            // $croppedImage = imagecrop($image, ['x' => 300, 'y' => 300, 'width' => 300, 'height' => 300]);
+            $croppedImage = imagecrop($image, ['x' => $x, 'y' => $y, 'width' => $width, 'height' => $height]);
+
+            // トリミングした画像を新しいファイルとして保存
+            $croppedFileName = 'cropped_' . $fileName;
+            imagejpeg($croppedImage, $uploadPath . '/' . $croppedFileName);
 
             return response()->json(['message' => 'File uploaded successfully.', 'filename' => $fileName]);
         } else {
