@@ -25,7 +25,6 @@ class RecipeFileUploadController extends Controller
             // ファイルを保存するディレクトリを指定（任意のディレクトリに変更する）
             $uploadPath = public_path('recipe_images');
 
-
             // ファイルの保存
             $fileName = time() . '_' . $file->getClientOriginalName();
             $jstDateTime = date('YmdHi', strtotime('+ 9 hours', time()));
@@ -34,12 +33,10 @@ class RecipeFileUploadController extends Controller
 
             // トリミングした画像を作成
             $image = imagecreatefromjpeg($uploadPath . '/' . $fileName);
-            // $croppedImage = imagecrop($image, ['x' => 300, 'y' => 300, 'width' => 300, 'height' => 300]);
             $croppedImage = imagecrop($image, ['x' => $x, 'y' => $y, 'width' => $width, 'height' => $height]);
 
             // トリミングした画像を新しいファイルとして保存
-            $croppedFileName = 'cropped_' . $fileName;
-            imagejpeg($croppedImage, $uploadPath . '/' . $croppedFileName);
+            imagejpeg($croppedImage, $uploadPath . '/' . $fileName);
 
             return response()->json(['message' => 'File uploaded successfully.', 'filename' => $fileName]);
         } else {
