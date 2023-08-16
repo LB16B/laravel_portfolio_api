@@ -32,11 +32,33 @@ class RecipeFileUploadController extends Controller
             $file->move($uploadPath, $fileName);
 
             // トリミングした画像を作成
-            $image = imagecreatefromjpeg($uploadPath . '/' . $fileName);
+            $extension = strtolower($file->getClientOriginalExtension());
+            if ($extension === 'jpeg' || $extension === 'jpg') {
+                $image = imagecreatefromjpeg($uploadPath . '/' . $fileName);
+            } elseif ($extension === 'png') {
+                $image = imagecreatefrompng($uploadPath . '/' . $fileName);
+            } else {
+                // サポートされていないファイル形式の場合のエラーハンドリング
+                return response()->json(['message' => 'Unsupported file format.'], 400);
+            }
+            // トリミングした画像を作成
+            // $image = imagecreatefromjpeg($uploadPath . '/' . $fileName);
             $croppedImage = imagecrop($image, ['x' => $x, 'y' => $y, 'width' => $width, 'height' => $height]);
 
+            // ファイルの拡張子を取得
+            // $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+            // トリミングした画像を適切なフォーマットで保存
+            if ($extension === 'jpeg' || $extension === 'jpg') {
+                imagejpeg($croppedImage, $uploadPath . '/' . $fileName);
+            } elseif ($extension === 'png') {
+                imagepng($croppedImage, $uploadPath . '/' . $fileName);
+            } else {
+                
+            }
+
             // トリミングした画像を新しいファイルとして保存
-            imagejpeg($croppedImage, $uploadPath . '/' . $fileName);
+            // imagejpeg($croppedImage, $uploadPath . '/' . $fileName);
 
             return response()->json(['message' => 'File uploaded successfully.', 'filename' => $fileName]);
         } else {
