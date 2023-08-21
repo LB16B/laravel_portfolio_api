@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// use Intervention\Image\Facades\Image;
 use Intervention\Image\Facades\Image as ImageIntervention;
 
 class RecipeFileUploadController extends Controller
@@ -41,12 +40,8 @@ class RecipeFileUploadController extends Controller
                 // サポートされていないファイル形式の場合のエラーハンドリング
                 return response()->json(['message' => 'Unsupported file format.'], 400);
             }
-            // トリミングした画像を作成
-            // $image = imagecreatefromjpeg($uploadPath . '/' . $fileName);
-            $croppedImage = imagecrop($image, ['x' => $x, 'y' => $y, 'width' => $width, 'height' => $height]);
 
-            // ファイルの拡張子を取得
-            // $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+            $croppedImage = imagecrop($image, ['x' => $x, 'y' => $y, 'width' => $width, 'height' => $height]);
 
             // トリミングした画像を適切なフォーマットで保存
             if ($extension === 'jpeg' || $extension === 'jpg') {
@@ -56,9 +51,6 @@ class RecipeFileUploadController extends Controller
             } else {
                 
             }
-
-            // トリミングした画像を新しいファイルとして保存
-            // imagejpeg($croppedImage, $uploadPath . '/' . $fileName);
 
             return response()->json(['message' => 'File uploaded successfully.', 'filename' => $fileName]);
         } else {
