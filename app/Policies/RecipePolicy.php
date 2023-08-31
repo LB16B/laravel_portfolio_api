@@ -17,6 +17,14 @@ class RecipePolicy
     }
 
     /**
+     * Determine whether the user can create models.
+     */
+    public function create(User $user): bool
+    {
+        return true;
+    }
+
+    /**
      * Determine whether the user can view the model.
      */
     public function view(User $user, Recipe $recipe): bool
@@ -24,13 +32,6 @@ class RecipePolicy
         return $user->id === $recipe->user_id;
     }
 
-    // /**
-    //  * Determine whether the user can create models.
-    //  */
-    // public function create(User $user): bool
-    // {
-    //     //
-    // }
 
     /**
      * Determine whether the user can update the model.

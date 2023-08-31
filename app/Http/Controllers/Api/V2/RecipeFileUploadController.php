@@ -1,27 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V2;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image as ImageIntervention;
-
-use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Models\Recipe;
 use Illuminate\Support\Facades\Hash;
-
 use Illuminate\Http\Response;
 use App\Http\Requests\LoginRequest;
-// use Dotenv\Exception\ValidationException;
-use Illuminate\Validation\ValidationException;
 
 class RecipeFileUploadController extends Controller
 {
     public function upload(Request $request)
     {
-
-
         if ($request->hasFile('file')) {
             // ファイルがアップロードされた場合
             $file = $request->file('file');

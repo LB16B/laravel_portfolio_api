@@ -28,3 +28,8 @@ class RedirectIfAuthenticated
         return $next($request);
     }
 }
+
+
+// if (!$request->expectsJson()) {
+//     return redirect(RouteServiceProvider::HOME);
+// }

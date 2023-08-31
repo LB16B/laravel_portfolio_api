@@ -24,8 +24,8 @@ class RecipeController extends Controller
     public function index()
     {
         // collection リスト形式でデータを格納できるラッパー
-        return RecipeResource::collection(auth()->user()->recipes()->get());
-        // return RecipeResource::collection(Recipe::all());
+        // return RecipeResource::collection(auth()->user()->recipes()->get());
+        return RecipeResource::collection(Recipe::all());
     }
 
     // /**
@@ -41,8 +41,7 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
-        $recipe = $request->user()->recipes->create($request->validated());
-        // $recipe = Recipe::create($request->validated());
+        $recipe = $request->user()->recipes()->create($request->validated());
 
         return RecipeResource::make($recipe);
     }

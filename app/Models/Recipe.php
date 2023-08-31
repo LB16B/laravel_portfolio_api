@@ -13,7 +13,7 @@ class Recipe extends Model
         'title',
         'time',
         'price',
-        'filename'
+        'filename',
     ];
 
     public function user()
