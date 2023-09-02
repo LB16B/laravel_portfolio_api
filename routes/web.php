@@ -20,11 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('auth')->group(function () {
-    Route::post('/login', LoginController::class)->middleware('guest');
-    Route::post('/logout', LogoutController::class);
-    Route::post('/register', RegisterController::class);
-});
+// Route::prefix('/api/auth')->group(function () {
+//     Route::post('/login', LoginController::class)->middleware('guest');
+//     Route::post('/logout', LogoutController::class);
+//     Route::post('/register', RegisterController::class);
+// });
 
 Route::get('/phpinfo', function () {
     return phpinfo();

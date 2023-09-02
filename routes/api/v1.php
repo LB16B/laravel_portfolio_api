@@ -9,7 +9,7 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('/recipes', RecipeController::class);
 });
 
-Route::prefix('v1')->group(function () {
-    Route::post('/upload', [RecipeFileUploadController::class, 'upload']);
-});
+// Route::prefix('v1')->group(function () {
+//     Route::post('/upload', [RecipeFileUploadController::class, 'upload']);
+// });
 

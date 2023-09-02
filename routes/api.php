@@ -23,6 +23,7 @@ use App\Http\Controllers\Api\V1\RecipeController;
 require __DIR__ . '/api/v1.php';
 require __DIR__ . '/api/v2.php';
 
+
 Route::prefix('auth')->group(function () {
     Route::post('/login', LoginController::class);
     Route::post('/logout', LogoutController::class)->middleware('auth:sanctum');
