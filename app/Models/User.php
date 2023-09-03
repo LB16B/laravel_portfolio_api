@@ -44,6 +44,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function createToken($name, array $abilities = ['*'])
+    {
+        return $this->tokens()->create([
+            'name' => $name,
+            'token' => hash('sha256', $plainTextToken = Str::random(80)),
+            'abilities' => $abilities,
+        ]);
+    } 
+
     public function recipes()
     {
         return $this->hasMany(Recipe::class);
