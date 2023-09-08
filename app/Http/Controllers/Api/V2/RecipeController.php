@@ -49,11 +49,25 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Recipe $recipe)
+    public function show()
     {
-        return RecipeResource::make($recipe);
+        // collection リスト形式でデータを格納できるラッパー
+        // return RecipeResource::collection(auth()->user()->recipes()->get());
+        return RecipeResource::collection(Recipe::all());
     }
-
+    // public function show($id)
+    // {
+    //     // 特定のIDに対応するレシピをデータベースから取得
+    //     $recipe = Recipe::find($id);
+    
+    //     // レシピが存在しない場合、エラーを返すか適切に処理してください
+    //     if (!$recipe) {
+    //         return response()->json(['message' => 'レシピが見つかりませんでした'], 404);
+    //     }
+    
+    //     // レシピをリソースに変換して返す
+    //     return new RecipeResource($recipe);
+    // }
     /**
      * Show the form for editing the specified resource.
      */
