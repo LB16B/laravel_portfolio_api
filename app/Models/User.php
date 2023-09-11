@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Recipe::class);
     }
+
+    public function isAdmin()
+{
+    return $this->role === 'admin'; // ユーザーの役割が 'admin' の場合に true を返す例
+}
 }

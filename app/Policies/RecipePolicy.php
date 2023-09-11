@@ -46,7 +46,14 @@ class RecipePolicy
      */
     public function delete(User $user, Recipe $recipe): bool
     {
-        //
+    // ポリシーの条件をチェックし、削除を許可する場合は true を返す
+    // ポリシーの条件をチェックし、削除を許可する場合は true を返す
+    if ($user->isAdmin() || $user->id === $recipe->user_id) {
+        return true;
+    }
+
+    // 削除を許可しない場合は false を返す
+    return false;
     }
 
     /**
