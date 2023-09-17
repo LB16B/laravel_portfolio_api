@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(5)->has(
             Recipe::factory(1)->has(
-                Food::factory(1)
+                Food::factory(5)
             )
         )->create();
     }

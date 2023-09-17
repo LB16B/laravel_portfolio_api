@@ -18,6 +18,7 @@ class FoodResource extends JsonResource
             'id' => $this->id,
             'ingredient' => $this->ingredient,
             'amount' => $this->amount,
+            'recipe_id' => $this->recipe_id
         ];
     }
 }
