@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(5)->has(
-            Recipe::factory(5)->has(
-                Food::factory(5)
+            Recipe::factory(1)->has(
+                Food::factory(1)
             )
         )->create();
     }
