@@ -14,18 +14,3 @@ Route::prefix('v2')->group(function () {
 });
 
 
-Route::get('/test/{fileName}', function ($filename) {
-    $path = public_path('recipe_images/' . $filename);
-
-    if (file_exists($path)) {
-        $file = file_get_contents($path);
-        $type = mime_content_type($path);
-        $base64 = base64_encode($file);
-
-        return Response::json([
-            'data' => 'data:' . $type . ';base64,' . $base64,
-        ]);
-    } else {
-        abort(404);
-    }
-});
