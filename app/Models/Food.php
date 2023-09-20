@@ -14,7 +14,8 @@ class Food extends Model
 
     protected $fillable = [
         'ingredient',
-        'amount'
+        'amount',
+        'recipe_id'
     ];
 
     public function recipe()

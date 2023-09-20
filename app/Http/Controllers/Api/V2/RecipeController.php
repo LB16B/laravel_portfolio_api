@@ -43,7 +43,11 @@ class RecipeController extends Controller
     {
         $recipe = $request->user()->recipes()->create($request->validated());
 
-        return RecipeResource::make($recipe);
+            // 新しいレシピのIDを取得
+            $newRecipeId = $recipe->id;
+
+        // return RecipeResource::make($recipe);
+        return response()->json(['recipe_id' => $newRecipeId]);
     }
 
     /**

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('ingredient');
             $table->string('amount')->default('50g');
+            $table->foreignId('recipe_id')->default(1)->constrained()->cascadeOnDelete()->after('id');
             $table->timestamps();
         });
     }

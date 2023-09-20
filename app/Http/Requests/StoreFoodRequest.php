@@ -23,7 +23,8 @@ class StoreFoodRequest extends FormRequest
     {
         return [
             'ingredient' => 'required|string|max:255',
-            'amount' => 'required|string|max:255'
+            'amount' => 'required|string|max:255',
+            'recipe_id' => 'required|integer'
         ];
     }
 }
