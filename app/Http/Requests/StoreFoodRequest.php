@@ -22,9 +22,9 @@ class StoreFoodRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'ingredient' => 'required|string|max:255',
-            'amount' => 'required|string|max:255',
-            'recipe_id' => 'required|integer'
+            'ingredient' => 'string|max:255',
+            'amount' => 'string|max:255',
+            'recipe_id' => 'integer'
         ];
     }
 }
