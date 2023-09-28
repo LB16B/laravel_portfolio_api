@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recipes', function (Blueprint $table) {
+        Schema::create('category_ages', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->integer('time')->nullable();
-            $table->integer('price')->nullable();
-            $table->string('filename')->nullable();
-            $table->foreignId('category_age_id')->default(1)->constrained()->cascadeOnDelete()->after('id');
+            $table->string('stage');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recipes');
+        Schema::dropIfExists('category_ages');
     }
 };

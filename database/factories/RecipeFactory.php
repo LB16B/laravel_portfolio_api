@@ -117,6 +117,7 @@ class RecipeFactory extends Factory
             'time' => rand(30, 500),
             'price' => rand(100, 3000),
             'filename' => RecipeImageFakerProvider::recipeImage(),
+            'category_age_id' => rand(1, 3),
         ];
     }
 }
