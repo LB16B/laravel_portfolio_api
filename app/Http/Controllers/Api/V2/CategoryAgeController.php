@@ -6,6 +6,8 @@ use App\Models\CategoryAge;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryAgeRequest;
 use App\Http\Requests\UpdateCategoryAgeRequest;
+use App\Http\Resources\CategoryAgeResource;
+
 class CategoryAgeController extends Controller
 {
     /**
