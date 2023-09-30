@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        CategoryAge::factory(3)->create();
+        $this->call([
+            CategoryAgeSeeder::class,
+        ]);
         
         User::factory(5)->has(
             Recipe::factory(1)->has(
