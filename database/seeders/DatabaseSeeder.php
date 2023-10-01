@@ -9,6 +9,7 @@ use App\Models\Food;
 use App\Models\Recipe;
 use App\Models\CategoryAge;
 use Illuminate\Database\Seeder;
+use App\Models\Review;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,11 +21,17 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoryAgeSeeder::class,
         ]);
-        
+
         User::factory(5)->has(
-            Recipe::factory(1)->has(
-                Food::factory(5)
-            )
+            Recipe::factory(1)
+                ->has(Food::factory(5))
+                ->has(Review::factory(4))
         )->create();
+        
+        // User::factory(5)->has(
+        //     Recipe::factory(1)->has(
+        //         Food::factory(5),
+        //     )
+        // )->create();
     }
 }

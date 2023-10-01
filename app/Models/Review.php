@@ -6,11 +6,9 @@ use App\Models\Recipe;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Food extends Model
+class Review extends Model
 {
     use HasFactory;
-
-    protected $table = 'foods';
 
     protected $fillable = [
         'ingredient',
@@ -18,7 +16,7 @@ class Food extends Model
         'recipe_id'
     ];
 
-    public function recipe_food()
+    public function recipe_review()
     {
         return $this->belongsTo(Recipe::class);
     }
