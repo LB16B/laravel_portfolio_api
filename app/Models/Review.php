@@ -11,8 +11,8 @@ class Review extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ingredient',
-        'amount',
+        'score',
+        'body',
         'recipe_id'
     ];
 
