@@ -21,7 +21,8 @@ class RecipeResource extends JsonResource
             'price' => $this->price,
             'filename' => $this->filename,
             'created_at' => $this->created_at,
-            'user_id' => $this->user_id
+            'user_id' => $this->user_id,
+            'category_age_id' => $this->category_age_id,
         ];
     }
 }
