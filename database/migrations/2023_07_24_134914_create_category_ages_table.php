@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('category_ages', function (Blueprint $table) {
             $table->id();
             $table->string('stage');
+            $table->string('filename');
             $table->timestamps();
         });
     }

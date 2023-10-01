@@ -18,14 +18,17 @@ class CategoryAgeSeeder extends Seeder
             [
                 'id' => 1,
                 'stage' => '5、6ヶ月(初期)',
+                'filename' => 'category_age1.png'
             ],
             [
                 'id' => 2,
                 'stage' => '7、8ヶ月(中期)',
+                'filename' => 'category_age2.png'
             ],
             [
                 'id' => 3,
                 'stage' => '9~11ヶ月(後期)',
+                'filename' => 'category_age3.png'
             ],
         ]);
     }

@@ -17,6 +17,7 @@ class CategoryAgeResource extends JsonResource
         return [
             'id' => $this->id,
             'stage' => $this->stage,
+            'filename' => $this->filename
         ];
     }
 }

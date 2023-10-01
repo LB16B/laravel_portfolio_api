@@ -11,7 +11,8 @@ class CategoryAge extends Model
     use HasFactory;
 
     protected $fillable = [
-        'state'
+        'state',
+        'filename'
     ];
 
     public function recipe()
