@@ -24,7 +24,8 @@ class StoreReviewRequest extends FormRequest
         return [
             'score' => 'integer',
             'body' => 'string|max:255',
-            'recipe_id' => 'integer'
+            'recipe_id' => 'integer',
+            'user_id' => 'integer'
         ];
     }
 }

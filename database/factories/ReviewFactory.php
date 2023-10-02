@@ -20,7 +20,7 @@ class ReviewFactory extends Factory
         return [
             'body' => fake()->sentence(),
             'score' => rand(0, 5),
-            'recipe_id' => rand(0, 5)
+            'recipe_id' => rand(0, 5),
         ];
     }
 }

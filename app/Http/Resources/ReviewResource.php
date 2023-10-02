@@ -18,7 +18,8 @@ class ReviewResource extends JsonResource
             'id' => $this->id,
             'score' => $this->score,
             'body' => $this->body,
-            'recipe_id' => $this->recipe_id
+            'recipe_id' => $this->recipe_id,
+            'user_id' => $this->user_id,
         ];
     }
 }
