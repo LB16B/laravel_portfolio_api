@@ -17,7 +17,10 @@ class ReviewController extends Controller
      */
     public function index()
     {
+        $reviews = Review::paginate(6);
+
         return ReviewResource::collection(Review::all());
+
     }
 
     /**
