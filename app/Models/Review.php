@@ -14,7 +14,8 @@ class Review extends Model
     protected $fillable = [
         'score',
         'body',
-        'recipe_id'
+        'recipe_id',
+        'user_id'
     ];
 
     public function recipe_review()
