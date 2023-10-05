@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\Recipe;
 use App\Models\CategoryAge;
+use App\Models\Manual;
 use Illuminate\Database\Seeder;
 use App\Models\Review;
 
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             Recipe::factory(1)
                 ->has(Food::factory(5))
                 ->has(Review::factory(4))
+                ->has(Manual::factory(5))
         )->create();
         
         // User::factory(5)->has(
