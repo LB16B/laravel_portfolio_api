@@ -23,8 +23,6 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        // collection リスト形式でデータを格納できるラッパー
-        // return RecipeResource::collection(auth()->user()->recipes()->get());
         return RecipeResource::collection(Recipe::all());
     }
 
@@ -59,30 +57,7 @@ class RecipeController extends Controller
         // return RecipeResource::collection(auth()->user()->recipes()->get());
         return RecipeResource::collection(Recipe::all());
     }
-    // public function show($id)
-    // {
-    //     // 特定のIDに対応するレシピをデータベースから取得
-    //     $recipe = Recipe::find($id);
-    
-    //     // レシピが存在しない場合、エラーを返すか適切に処理してください
-    //     if (!$recipe) {
-    //         return response()->json(['message' => 'レシピが見つかりませんでした'], 404);
-    //     }
-    
-    //     // レシピをリソースに変換して返す
-    //     return new RecipeResource($recipe);
-    // }
-    /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(Recipe $recipe)
-    // {
-    //     //
-    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateRecipeRequest $request, Recipe $recipe)
     {
         $recipe->update($request->validated());
