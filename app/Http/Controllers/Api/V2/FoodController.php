@@ -39,14 +39,6 @@ class FoodController extends Controller
         return FoodResource::make($food);
     }
 
-    // /**
-    //  * Show the form for editing the specified resource.
-    //  */
-    // public function edit(Food $food)
-    // {
-    //     //
-    // }
-
     /**
      * Update the specified resource in storage.
      */

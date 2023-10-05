@@ -6,6 +6,9 @@ use App\Models\Manual;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreManualRequest;
 use App\Http\Requests\UpdateManualRequest;
+use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Resources\ManualResource;
 
 class ManualController extends Controller
 {
@@ -14,15 +17,7 @@ class ManualController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return ManualResource::collection(Manual::all());
     }
 
     /**
@@ -30,7 +25,9 @@ class ManualController extends Controller
      */
     public function store(StoreManualRequest $request)
     {
-        //
+        $manual = Manual::create($request->validated());
+
+        return ManualResource::make($manual);
     }
 
     /**
@@ -38,15 +35,7 @@ class ManualController extends Controller
      */
     public function show(Manual $manual)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Manual $manual)
-    {
-        //
+        return ManualResource::make($manual);
     }
 
     /**
@@ -54,7 +43,9 @@ class ManualController extends Controller
      */
     public function update(UpdateManualRequest $request, Manual $manual)
     {
-        //
+        $manual->update($request->validate());
+
+        return ManualResource::make($manual);
     }
 
     /**
@@ -62,6 +53,8 @@ class ManualController extends Controller
      */
     public function destroy(Manual $manual)
     {
-        //
+        $manual->delete();
+
+        return response()->noContent();
     }
 }
