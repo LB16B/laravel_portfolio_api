@@ -9,6 +9,7 @@ use App\Http\Controllers\RecipeFileUploadController;
 use App\Http\Controllers\Api\V2\CategoryAgeController;
 use App\Http\Controllers\Api\V2\ChangePasswordController;
 use App\Http\Controllers\Api\V2\ManualController;
+use App\Http\Controllers\Api\V2\LikeController;
 
 Route::prefix('v2')->group(function () {
     Route::apiResource('/recipes', RecipeController::class);
@@ -16,6 +17,7 @@ Route::prefix('v2')->group(function () {
     Route::apiResource('/category_ages', CategoryAgeController::class);
     Route::apiResource('/reviews', ReviewController::class);
     Route::apiResource('/manuals', ManualController::class);
+    Route::apiResource('/likes', LikeController::class);
     Route::post('/change_password', [ChangePasswordController::class, 'changePassword']);
 });
 

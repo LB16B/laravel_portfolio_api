@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V2;
 
 use App\Models\Like;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLikeRequest;
 use App\Http\Requests\UpdateLikeRequest;
+use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Resources\LikeResource;
 
 class LikeController extends Controller
 {
@@ -14,15 +17,7 @@ class LikeController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return LikeResource::collection(Like::all());
     }
 
     /**
@@ -30,7 +25,9 @@ class LikeController extends Controller
      */
     public function store(StoreLikeRequest $request)
     {
-        //
+        $like = Like::create($request->validated());
+
+        return LikeResource::make($like);
     }
 
     /**
@@ -38,15 +35,7 @@ class LikeController extends Controller
      */
     public function show(Like $like)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Like $like)
-    {
-        //
+        return LikeResource::make($like);
     }
 
     /**
@@ -54,7 +43,9 @@ class LikeController extends Controller
      */
     public function update(UpdateLikeRequest $request, Like $like)
     {
-        //
+        $like->update($request->validated());
+
+        return LikeResource::make($like);
     }
 
     /**
@@ -62,6 +53,8 @@ class LikeController extends Controller
      */
     public function destroy(Like $like)
     {
-        //
+        $like->delete();
+
+        return response()->noContent();
     }
 }
