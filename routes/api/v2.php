@@ -16,7 +16,7 @@ Route::prefix('v2')->group(function () {
     Route::apiResource('/category_ages', CategoryAgeController::class);
     Route::apiResource('/reviews', ReviewController::class);
     Route::apiResource('/manuals', ManualController::class);
-    Route::post('/change_password', [ChangePasswordController::class, 'changePassword']);
+    Route::put('/change_password', [ChangePasswordController::class, 'changePassword']);
 });
 
 Route::prefix('v2')->group(function () {
