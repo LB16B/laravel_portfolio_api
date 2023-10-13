@@ -23,6 +23,7 @@ class RecipeResource extends JsonResource
             'created_at' => $this->created_at,
             'user_id' => $this->user_id,
             'category_age_id' => $this->category_age_id,
+            'category_food_id' => $this->category_food_id,
         ];
     }
 }

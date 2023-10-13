@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Recipe;
 
 class CategoryFood extends Model
 {
@@ -13,4 +14,9 @@ class CategoryFood extends Model
         'name',
         'filename'
     ];
+
+    public function recipe_category_food()
+    {
+        return $this->hasMany(Recipe::class);
+    }
 }

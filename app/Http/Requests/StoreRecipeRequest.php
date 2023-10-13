@@ -26,6 +26,7 @@ class StoreRecipeRequest extends FormRequest
             'time' => 'integer',
             'price' => 'integer',
             'filename' => 'string|max:255',
+            'category_age_id' => 'integer',
             'category_age_id' => 'integer'
         ];
     }
