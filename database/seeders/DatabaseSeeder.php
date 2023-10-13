@@ -12,6 +12,7 @@ use App\Models\Manual;
 use Illuminate\Database\Seeder;
 use App\Models\Review;
 use App\Models\CategoryFood;
+use App\Models\Like;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
                 ->has(Food::factory(5))
                 ->has(Review::factory(4))
                 ->has(Manual::factory(5))
+                ->has(Like::factory(5))
         )->create();
         
         // User::factory(5)->has(

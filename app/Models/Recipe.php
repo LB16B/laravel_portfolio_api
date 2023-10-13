@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Food;
 use App\Models\Manual;
 use App\Models\Review;
+use App\Models\Like;
 use App\Models\CategoryAge;
 use App\Models\CategoryFood;
 use Illuminate\Database\Eloquent\Model;
@@ -31,6 +32,11 @@ class Recipe extends Model
     public function food()
     {
         return $this->hasMany(Food::class);
+    }
+
+    public function like()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function manual()
