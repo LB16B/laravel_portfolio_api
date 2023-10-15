@@ -23,7 +23,8 @@ class UpdateUserProfileRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . auth()->id()
+            'filename' => 'string|max:255',
+            'email' => 'string|email|max:255|unique:users,email,' . auth()->id()
         ];
     }
 }
