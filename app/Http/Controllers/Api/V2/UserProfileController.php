@@ -20,6 +20,7 @@ class UserProfileController extends Controller
         $user->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'filename' => $request->input('filename'),
             // 他のプロフィールフィールドの更新も追加できます
         ]);
 

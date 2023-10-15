@@ -25,7 +25,7 @@ class ProfileImageUploadController extends Controller
             $width = $request->input('width');
 
             // ファイルを保存するディレクトリを指定（任意のディレクトリに変更する）
-            $uploadPath = public_path('recipe_images');
+            $uploadPath = public_path('profile_images');
 
             // ファイルの保存
             $fileName = time() . '_' . $file->getClientOriginalName();
