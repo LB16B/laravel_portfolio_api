@@ -20,7 +20,7 @@ class LoginController extends Controller
     {
         if (!auth()->attempt($request->only(['email', 'password']))) {
             throw ValidationException::withMessages([
-                'email' => ['The credentials you entered are incorrect.']
+                'email' => ['入力したユーザー名またはパスワードが 間 違っています。']
             ]);
         }
     }
