@@ -15,7 +15,7 @@ class Review extends Model
         'score',
         'body',
         'recipe_id',
-        'user_id'
+        // 'user_id'
     ];
 
     public function recipe_review()

@@ -13,6 +13,11 @@ use App\Models\User;
 
 class UserProfileController extends Controller
 {
+    public function index()
+    {
+        return UserProfileResource::collection(User::all());
+    }
+
     public function update(UpdateUserProfileRequest $request)
     {
         $user = auth()->user(); // ログインしているユーザーを取得

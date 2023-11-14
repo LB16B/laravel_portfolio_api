@@ -24,6 +24,7 @@ Route::prefix('v2')->group(function () {
     Route::apiResource('/manuals', ManualController::class);
     Route::put('/change_password', [ChangePasswordController::class, 'changePassword']);
     Route::put('/user_profile', [UserProfileController::class, 'update']);
+    Route::get('/user_profile', [UserProfileController::class, 'index']);
     Route::post('/profile_image_upload', [ProfileImageUploadController::class, 'profile_upload']);
 });
 
