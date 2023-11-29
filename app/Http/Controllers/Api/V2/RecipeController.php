@@ -26,25 +26,12 @@ class RecipeController extends Controller
         return RecipeResource::collection(Recipe::all());
     }
 
-    // /**
-    //  * Show the form for creating a new resource.
-    //  */
-    // public function create()
-    // {
-    //     //
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreRecipeRequest $request)
     {
         $recipe = $request->user()->recipes()->create($request->validated());
 
-            // 新しいレシピのIDを取得
             $newRecipeId = $recipe->id;
 
-        // return RecipeResource::make($recipe);
         return response()->json(['recipe_id' => $newRecipeId]);
     }
 

@@ -43,7 +43,7 @@ class ManualController extends Controller
      */
     public function update(UpdateManualRequest $request, Manual $manual)
     {
-        $manual->update($request->validate());
+        $manual->update($request->validated());
 
         return ManualResource::make($manual);
     }

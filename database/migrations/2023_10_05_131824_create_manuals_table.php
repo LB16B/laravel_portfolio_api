@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('manuals', function (Blueprint $table) {
             $table->id();
-            $table->text('body');
+            $table->string('body');
             $table->foreignId('recipe_id')->default(1)->constrained()->cascadeOnDelete()->after('id');
             $table->timestamps();
         });
