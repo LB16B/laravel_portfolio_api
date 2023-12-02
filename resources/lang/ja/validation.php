@@ -12,7 +12,6 @@ return [
     | 持っているものもあります。メッセージはご自由に調整してください。
     |
     */
-
     'accepted'             => ':attributeを承認してください。',
     'accepted_if' => ':otherが:valueの場合、:attributeを承認してください。',
     'active_url'           => ':attributeが有効なURLではありません。',
@@ -155,6 +154,8 @@ return [
 
     'attributes' => [
         'password' => 'パスワード',
+        'name' => '名前',
+        'address' => '名前',
 
     ],
 
