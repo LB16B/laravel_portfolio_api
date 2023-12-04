@@ -10,6 +10,8 @@ class Manual extends Model
 {
     use HasFactory;
 
+    protected $table = 'manuals';
+
     protected $fillable = [
         'body',
         'recipe_id'

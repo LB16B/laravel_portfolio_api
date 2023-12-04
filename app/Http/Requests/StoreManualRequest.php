@@ -22,7 +22,7 @@ class StoreManualRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'body' => 'required',
+            'body' => 'string|max:255',
             'recipe_id' => 'integer'
         ];
     }

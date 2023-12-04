@@ -12,7 +12,6 @@ return [
     | 持っているものもあります。メッセージはご自由に調整してください。
     |
     */
-
     'accepted'             => ':attributeを承認してください。',
     'accepted_if' => ':otherが:valueの場合、:attributeを承認してください。',
     'active_url'           => ':attributeが有効なURLではありません。',
@@ -31,7 +30,7 @@ return [
         'array'   => ':attributeは、:min個から:max個の間で指定してください。',
     ],
     'boolean'              => ':attributeは、trueかfalseを指定してください。',
-    'confirmed'            => ':attributeと、確認フィールドとが、一致していません。',
+    'confirmed'            => ':attributeと、パスワード(再確認)とが、一致していません。',
     'current_password'     => 'パスワードが正しくありません。',
     'date'                 => ':attributeには有効な日付を指定してください。',
     'date_equals'          => ':attributeには、:dateと同じ日付けを指定してください。',
@@ -41,7 +40,7 @@ return [
     'digits_between'       => ':attributeは:min桁から:max桁の間で指定してください。',
     'dimensions'           => ':attributeの図形サイズが正しくありません。',
     'distinct'             => ':attributeには異なった値を指定してください。',
-    'email'                => ':attributeには、有効なメールアドレスを指定してください。',
+    'email'                => '有効なメールアドレスを指定してください。',
     'ends_with'            => ':attributeには、:valuesのどれかで終わる値を指定してください。',
     'exists'               => '選択された:attributeは正しくありません。',
     'file'                 => ':attributeにはファイルを指定してください。',
@@ -98,7 +97,7 @@ return [
     'numeric'              => ':attributeには、数字を指定してください。',
     'password'             => '正しいパスワードを指定してください。',
     'present'              => ':attributeが存在していません。',
-    'regex'                => ':attributeに正しい形式を指定してください。',
+    'regex'                => ':attributeは大文字、小文字、数字を必ず入れてください',
     'required'             => ':attributeは必ず指定してください。',
     'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
     'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',
@@ -120,7 +119,7 @@ return [
     'starts_with'          => ':attributeには、:valuesのどれかで始まる値を指定してください。',
     'string'               => ':attributeは文字列を指定してください。',
     'timezone'             => ':attributeには、有効なゾーンを指定してください。',
-    'unique'               => ':attributeの値は既に存在しています。',
+    'unique'               => 'このメールアドレスは既に登録されています。',
     'uploaded'             => ':attributeのアップロードに失敗しました。',
     'url'                  => ':attributeに正しい形式を指定してください。',
     'uuid'                 => ':attributeに有効なUUIDを指定してください。',
@@ -155,6 +154,8 @@ return [
 
     'attributes' => [
         'password' => 'パスワード',
+        'name' => '名前',
+        'address' => '名前',
 
     ],
 
