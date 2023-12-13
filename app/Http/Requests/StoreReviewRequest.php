@@ -22,7 +22,7 @@ class StoreReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'score' => 'integer',
+            'score' => 'integer|between:1,5',
             'body' => 'string|max:255',
             'recipe_id' => 'integer',
             'user_id' => 'integer'
