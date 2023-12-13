@@ -97,7 +97,7 @@ return [
     'numeric'              => ':attributeには、数字を指定してください。',
     'password'             => '正しいパスワードを指定してください。',
     'present'              => ':attributeが存在していません。',
-    'regex'                => ':attributeは大文字、小文字、数字を必ず入れてください',
+    'regex'                => ':attributeは大文字含む英数字を必ず入れてください',
     'required'             => ':attributeは必ず指定してください。',
     'required_if'          => ':otherが:valueの場合、:attributeも指定してください。',
     'required_unless'      => ':otherが:valuesでない場合、:attributeを指定してください。',

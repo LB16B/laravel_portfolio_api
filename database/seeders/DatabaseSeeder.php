@@ -27,13 +27,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory(5)->has(
-            Recipe::factory(5)
+            Recipe::factory(10)
                 ->has(Food::factory(5))
                 // ->has(Review::factory(8))
                 ->has(Manual::factory(5))
         )->create();
 
-        Review::factory(100)->create();
+        Review::factory(400)->create();
         
     }
 }

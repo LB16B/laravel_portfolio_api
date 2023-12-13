@@ -114,8 +114,8 @@ class RecipeFactory extends Factory
 
         return [
             'title' => RecipeTitleFakerProvider::recipeTitle(),
-            'time' => rand(30, 500),
-            'price' => rand(100, 3000),
+            'time' => rand(5, 50),
+            'price' => rand(100, 1500),
             'filename' => RecipeImageFakerProvider::recipeImage(),
             'category_age_id' => rand(1, 3),
             'category_food_id' => rand(1, 10),

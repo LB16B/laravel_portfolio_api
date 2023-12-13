@@ -23,7 +23,10 @@ class RecipeController extends Controller
      */
     public function index()
     {
+        $recipes = Recipe::paginate(15);
+
         return RecipeResource::collection(Recipe::all());
+        // return RecipeResource::collection(Recipe::all());
     }
 
     public function store(StoreRecipeRequest $request)
@@ -40,8 +43,6 @@ class RecipeController extends Controller
      */
     public function show()
     {
-        // collection リスト形式でデータを格納できるラッパー
-        // return RecipeResource::collection(auth()->user()->recipes()->get());
         return RecipeResource::collection(Recipe::all());
     }
 
@@ -58,9 +59,6 @@ class RecipeController extends Controller
     public function destroy(Recipe $recipe)
     {
         $recipe->delete();
-
-        // onContent 成功ステータスレスポンスコード
-        // リクエストが成功したものの、クライアントが現在のページから移動する必要がない
         return response()->noContent();
     }
 }
